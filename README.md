@@ -1,4 +1,8 @@
 # coursera-python
+...
+created by hiitsherby
+on 00:56 May 4 2017 
+...
 Python Data Structures by University of Michigan
 Week4,Chap.8,Assignment8.5
 Open the file mbox-short.txt and read it line by line. 
@@ -22,7 +26,7 @@ cwen@iupui.edu
 cwen@iupui.edu
 cwen@iupui.edu
 There were 27 lines in the file with From as the first word
-
+...
 fname = raw_input("Enter file name: ")
 m=open(fname)
 
