@@ -1,2 +1,3 @@
 # coursera-python
-python course practice assignments
+Python Data Structure Course by University of Michigan
+practice assignments
