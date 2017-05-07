@@ -1,0 +1,22 @@
+#Assignment: Following links in html using BeautifulSoup
+
+import urllib
+from BeautifulSoup import *
+
+url = raw_input('Enter - ')
+html = urllib.urlopen(url).read()
+
+soup = BeautifulSoup(html)
+
+# Retrieve all of the anchor tags
+tags = soup('span')
+lst=list()
+for tag in tags:
+    # Look at the parts of a tag
+    con=tag.contents[0]
+    lst.append(con)
+    lst = [int(i) for i in lst]
+tot=0
+for n in lst:
+    tot=tot+n
+print tot 
