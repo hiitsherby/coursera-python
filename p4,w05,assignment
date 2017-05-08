@@ -1,0 +1,47 @@
+Actual data: http://python-data.dr-chuck.net/comments_371257.xml (Sum ends with 66)
+find out the sum of all count element
+...
+Data Format and Approach
+The data consists of a number of names and comment counts in XML as follows:
+
+<comment>
+  <name>Matthias</name>
+  <count>97</count>
+</comment>
+You are to look through all the <comment> tags and find the <count> values sum the numbers. The closest sample code that shows how to parse XML is geoxml.py. But since the nesting of the elements in our data is different than the data we are parsing in that sample code you will have to make real changes to the code.
+To make the code a little simpler, you can use an XPath selector string to look through the entire tree of XML for any tag named 'count' with the following line of code:
+
+counts = tree.findall('.//count')
+Take a look at the Python ElementTree documentation and look for the supported XPath syntax for details. You could also work from the top of the XML down to the comments node and then loop through the child nodes of the comments node.
+
+...
+import urllib
+import xml.etree.ElementTree as ET
+
+#serviceurl = 'http://maps.googleapis.com/maps/api/geocode/xml?'
+
+while True:
+    url = raw_input('Enter location: ')
+    #url = 'http://python-data.dr-chuck.net/comments_42.xml'
+    if len(url) < 1 : break
+    print 'Retrieving', url
+    uh = urllib.urlopen(url)
+    data = uh.read()
+    print 'Retrieved',len(data),'characters'
+
+    tree = ET.fromstring(data)
+
+    c = tree.findall('.//count')
+
+    print 'count: ', len(c)
+
+    tot = 0
+    for n in c:
+
+        number = int(n.text)
+        tot = tot + number
+
+    print 'sum:', tot
+
+    break
+    
