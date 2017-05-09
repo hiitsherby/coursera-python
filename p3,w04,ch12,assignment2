@@ -35,14 +35,14 @@ from BeautifulSoup import *
 url = raw_input('Enter URL: ')
 count = raw_input('Enter count: ')
 position = raw_input('Enter position: ')
-
-c = [1,2,3,4,5,6,7]
+con=int(count)
+pos=int(position)
+c = range(con)
 for i in c:
     html = urllib.urlopen(url).read()
     soup = BeautifulSoup(html)
 
-    con=int(count)
-    pos=int(position)
+    
     tags = soup('a')
 
 # Retrieve all of the anchor tags
@@ -55,5 +55,6 @@ for i in c:
             ans = tag.get('href', None)
             print 'Retriving: ',ans
             url = ans
-    continue
-     
+    continue        
+
+    
